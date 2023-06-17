@@ -2,9 +2,15 @@ const subscribeTopicMqtt = (topic, topicName, client) => {
   client.on("connect", () => {
     client.subscribe(topic, (err) => {
       if (!err) {
-        console.log(`Connected to ${topicName} topic!`);
+        console.log(
+          `Conectado ao tópico de ${topicName === "level" ? "nível" : "peso"}`
+        );
       } else {
-        new Error(`Error connecting to ${topicName} topic: ${err}`);
+        throw new Error(
+          `Erro ao conectar ao tópico de ${
+            topicName === "level" ? "nível" : "peso"
+          }: ${err}`
+        );
       }
     });
   });

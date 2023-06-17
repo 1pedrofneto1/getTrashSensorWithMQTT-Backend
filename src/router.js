@@ -1,13 +1,15 @@
 const express = require("express");
-const tasksControllers = require("./controllers/tasksControllers");
+const weightControllers = require("./controllers/weightControllers");
+const levelControllers = require("./controllers/levelControllers");
 
 const router = express.Router();
 
-router.get("/weight", tasksControllers.getWeightValue);
-router.get("/level", tasksControllers.getLevelValue);
-router.post("/weightTurnOn", tasksControllers.postHandleSensorWeightOn);
-router.post("/levelTurnOn", tasksControllers.postHandleSensorLevelOn);
-router.post("/weightTurnOff", tasksControllers.postHandleSensorWeightOff);
-router.post("/levelTurnOff", tasksControllers.postHandleSensorLevelOff);
+router.get("/weight", weightControllers.getWeightValue);
+router.post("/weightTurnOn", weightControllers.postHandleSensorWeightOn);
+router.post("/weightTurnOff", weightControllers.postHandleSensorWeightOff);
+
+router.get("/level", levelControllers.getLevelValue);
+router.post("/levelTurnOn", levelControllers.postHandleSensorLevelOn);
+router.post("/levelTurnOff", levelControllers.postHandleSensorLevelOff);
 
 module.exports = router;
